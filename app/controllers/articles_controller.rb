@@ -14,8 +14,6 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
 
-    puts "xixixi#{@article.title}"
-
     if @article.save
       redirect_to @article
     else
@@ -34,6 +32,14 @@ class ArticlesController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @article = Article.find(params[:id])
+    puts "手機電話説的很好的"
+    @article.destroy
+
+    redirect_to root_path, status: :see_other
   end
 
   private
