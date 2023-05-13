@@ -8,4 +8,10 @@
     <strong>Comment:</strong>
     <%= comment.body %>
   </p>
+
+  <p>
+      <%= form_tag([comment.article, comment], method: :delete) do %>
+        <%= submit_tag "Delete", data: { confirm: "Are you sure?" } %>
+      <% end %>
+  </p>
 <% end %>
